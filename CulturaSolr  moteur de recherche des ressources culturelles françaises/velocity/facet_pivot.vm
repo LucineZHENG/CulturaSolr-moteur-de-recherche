@@ -1,0 +1,39 @@
+## -------------------------------------------
+## Clean Pivot Facet Display
+## commune → type_ressource
+## -------------------------------------------
+
+#macro(display_facet_pivot $pivots, $display)
+
+#if($pivots && $pivots.size() > 0)
+<h2 class="facet-title">$display</h2>
+
+<ul class="pivot-list">
+
+  #foreach ($pivot in $pivots)
+    #foreach ($entry in $pivot.value)
+      <li class="pivot-level1">
+        <strong>$entry.value</strong> <span class="count">($entry.count)</span>
+
+        #if($entry.pivot && $entry.pivot.size() > 0)
+        <ul class="pivot-level2">
+          #foreach($nest in $entry.pivot)
+            <li>
+              <a href="#url_for_facet_filter($entry.field, $entry.value)&fq=$esc.url($nest.field):%22$esc.url($nest.value)%22">
+                $nest.value
+              </a>
+              <span class="count">($nest.count)</span>
+            </li>
+          #end
+        </ul>
+        #end
+
+      </li>
+    #end
+  #end
+
+</ul>
+#end
+
+#end
+
