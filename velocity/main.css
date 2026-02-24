@@ -1,0 +1,279 @@
+/* ================================
+   自定义高亮样式（来自 .coucou）
+================================ */
+/* ===== Highlighter Style ===== */
+.highlight {
+  background-color: #FFE8C2;   /* 暖橙色背景 */
+  border: 1px solid #E0A96D;   /* 温暖的浅棕色细边框 */
+  padding: 1px 3px;
+  border-radius: 3px;
+  color: black;                /* 保持文字可读性 */
+}
+
+
+/* ================================
+   你提供的 .coucou（可选）
+================================ */
+.coucou {
+  color: red;
+  font-weight: bold;
+  background-color: yellow;
+  border: 3px black solid;
+  font-size: 200%;
+}
+
+/* ================================
+   管理区
+================================ */
+#admin {
+  text-align: right;
+  vertical-align: top;
+}
+
+#head {
+  width: 100%;
+}
+
+/* ================================
+   Array fields
+================================ */
+.array-field {
+  border: 2px solid #474747;
+  background: #FFE9D8;
+  padding: 5px;
+  margin: 5px;
+}
+
+.array-field-list li {
+  list-style: circle;
+  margin-left: 20px;
+}
+
+/* ================================
+   Parsed Query
+================================ */
+.parsed_query_header {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+.parsed_query {
+  font-family: Courier, Courier New, monospaced;
+  font-size: 10pt;
+}
+
+/* ================================
+   全局字体
+================================ */
+body {
+  font-family: "Inter", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+a {
+  color: #43a4b1;
+}
+
+/* ================================
+   左侧导航（facet 区域）
+================================ */
+.navigators {
+  float: left;
+  margin: 5px;
+  margin-top: 0;
+  width: 185px;
+  padding: 5px;
+  top: -20px;
+  position: relative;
+}
+
+.navigators h2 {
+  background: #FEC293;
+  padding: 2px 5px;
+}
+
+.navigators ul {
+  list-style: none;
+  margin: 5px 0;
+  padding-left: 10px;
+}
+
+.navigators ul li {
+  color: #999;
+  padding: 2px;
+}
+
+/* ================================
+   Tabs 区域
+================================ */
+.tabs-bar {
+  padding: 5px;
+  width: 100%;
+  border-bottom: 1px solid;
+}
+
+.tab {
+  font-weight: bold;
+  padding: 5px;
+  margin: 0 5px;
+  border: 1px solid;
+  background: #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.tab:hover {
+  background: #FEC293;
+}
+
+.tab.selected {
+  background: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+/* ================================
+   facet field 标题
+================================ */
+.facet-field {
+  font-weight: bold;
+}
+
+/* ================================
+   Highlight Box
+================================ */
+.highlight {
+  background: #d6f0ff;   /* 很淡很淡的浅蓝 */
+  color: #00365e;        /* 温和深蓝，不刺眼 */
+  padding: 1px 2px;
+  border-radius: 3px;
+  border: none;
+  font-weight: normal;   /* 不加粗！ */
+}
+
+
+
+/* ================================
+   搜索框
+================================ */
+#query-form {
+  width: 80%;
+}
+
+.query-box, .constraints {
+  padding: 5px;
+  margin: 5px;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+}
+
+.query-box #q {
+  margin-left: 8px;
+  width: 60%;
+  height: 50px;
+  border: 1px solid #999;
+  font-size: 1em;
+  padding: 0.4em;
+}
+
+.query-boost {
+  position: relative;
+  top: 10px;
+  left: 50px;
+  font-size: 0.8em;
+}
+
+.query-box .inputs {
+  left: 180px;
+  position: relative;
+}
+
+/* ================================
+   Logo
+================================ */
+#logo {
+  width: 115px;
+  margin: 0 0 20px 12px;
+  border-style: none;
+}
+
+/* ================================
+   Pagination
+================================ */
+.pagination {
+  padding-left: 33%;
+  background: #eee;
+  margin: 5px;
+  margin-left: 210px;
+  padding: 5px 0;
+}
+
+/* ================================
+   搜索结果卡片
+================================ */
+.result-document {
+  border: 1px solid #999;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 210px;
+  margin-bottom: 15px;
+}
+
+.result-document:nth-child(2n+1) {
+  background-color: #eee;
+}
+
+.result-document div {
+  padding: 5px;
+}
+
+.result-title {
+  width: 60%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.result-body {
+  background: #ddd;
+}
+
+
+/* ================================
+   地图
+================================ */
+#map {
+  height: 400px;
+  margin-left: 210px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* ================================
+   Groups
+================================ */
+.selected-facet-field {
+  font-weight: bold;
+}
+
+li.show {
+  list-style: disc;
+}
+
+.group-value {
+  font-weight: bold;
+}
+
+/* ================================
+   错误提示框
+================================ */
+.error {
+  color: white;
+  background-color: red;
+  left: 210px;
+  width: 80%;
+  position: relative;
+  padding: 10px;
+}

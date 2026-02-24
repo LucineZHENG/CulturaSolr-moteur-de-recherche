@@ -1,0 +1,83 @@
+#**
+ *  Main entry point into the /browse templates
+ *#
+
+#set($searcher = $request.searcher)
+#set($params = $request.params)
+#set($clusters = $response.response.clusters)
+#set($mltResults = $response.response.get("moreLikeThis"))
+#set($annotate = $params.get("annotateBrowse"))
+#parse('query_form.vm')
+#parse('did_you_mean.vm')
+
+<div class="navigators">
+  #parse("facets.vm")
+ 
+
+
+  ## 加载你写的 pivot 模板
+  #parse("facet_pivot.vm")
+
+  ## 从 Solr 获取 pivot 数据
+  #set($pivot = $response.response.facet_counts.facet_pivot)
+
+  ## 调用你自定义的 macro
+  #display_facet_pivot($pivot, "Pivot Facets") 
+</div>
+
+
+
+<div class="pagination">
+  #parse("pagination_top.vm")
+</div>
+
+
+## Show Error Message, if any
+#if($response.error)
+<div class="error">
+  #parse("error.vm")
+</div>
+#end
+
+
+## Map
+<div id="map" style="height: 400px; margin-left: 210px; margin-top: 20px; border: 1px solid #ccc;"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var map = L.map('map').setView([46.5, 2.5], 6);
+    
+    // 使用 CartoDB 地图源（更稳定）
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap © CartoDB',
+        maxZoom: 19
+    }).addTo(map);
+    
+    // 添加标记
+    #foreach($doc in $response.results)
+        #set($lat = $doc.getFieldValue("lat"))
+        #set($lon = $doc.getFieldValue("lon"))
+        #set($titre = $esc.javascript($doc.getFieldValue("titre")))
+        #if($lat && $lon)
+            L.marker([$lat, $lon])
+             .addTo(map)
+             .bindPopup("<b>$titre</b>");
+        #end
+    #end
+});
+</script>
+
+
+
+
+## Render Results, actual matching docs
+<div class="results">
+  #parse("results_list.vm")
+</div>
+
+
+
+<div class="pagination">
+  #parse("pagination_bottom.vm")
+</div>
+
+
